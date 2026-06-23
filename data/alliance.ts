@@ -1,0 +1,2 @@
+import type { LocalizedText } from './types';
+export const alliance = { name: '33G War Room', totalPower: '33G', vip18Count: 2, commanderRole: 'R4', season: 'Season 6', status: { en: 'Faction objective push active. VIP 18 reserved for critical rallies.', zh: '阵营目标推进中。VIP 18 仅保留给关键集结。' } satisfies LocalizedText, directive: { en: 'Maximum priority: secure faction objectives before reset.', zh: '最高优先级：重置前确保阵营目标。' } satisfies LocalizedText };

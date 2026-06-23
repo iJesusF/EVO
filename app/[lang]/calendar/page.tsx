@@ -1,0 +1,2 @@
+import { EventCard } from '@/components/EventCard'; import { SectionHeader } from '@/components/SectionHeader'; import { events } from '@/data/events'; import { getDictionary, isLanguage, type Language } from '@/lib/i18n';
+export default function Calendar({params}:{params:{lang:string}}){const lang:Language=isLanguage(params.lang)?params.lang:'en'; const t=getDictionary(lang); return <><SectionHeader title={t.calendarTitle} subtitle={t.calendarSubtitle}/><div className="grid gap-4">{events.map(e=><EventCard key={e.id} event={e} lang={lang}/>)}</div></>}
