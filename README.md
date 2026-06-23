@@ -93,3 +93,5 @@ npm run build
 ```
 
 No custom server is required. The root route `/` is a real homepage, and `app/not-found.tsx` handles missing routes.
+
+This repo includes `vercel.json` with `framework: "nextjs"` and `outputDirectory: ".next"`. If Vercel reports `No Output Directory named "public" found`, remove any Project Settings override that points the Output Directory to `public`, or let this repository-level `vercel.json` control the build output.
