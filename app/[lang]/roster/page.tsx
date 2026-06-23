@@ -1,2 +1,0 @@
-import { MemberTable } from '@/components/MemberTable'; import { SectionHeader } from '@/components/SectionHeader'; import { getDictionary, isLanguage, type Language } from '@/lib/i18n';
-export default function Roster({params}:{params:{lang:string}}){const lang:Language=isLanguage(params.lang)?params.lang:'en'; const t=getDictionary(lang); return <><SectionHeader title={t.rosterTitle} subtitle={t.rosterSubtitle}/><MemberTable lang={lang}/></>}

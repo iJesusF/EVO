@@ -1,12 +1,15 @@
 export const en = {
-  appName: '33G War Room', navHome: 'Home', navOrders: 'Orders', navStrategy: 'Strategy', navCalendar: 'Calendar', navRoster: 'Roster', navGuides: 'Guides', languageToggle: '中文',
-  homeEyebrow: 'Season 6 Private Command Center', homeTitle: '33G War Room', homeSubtitle: 'R4 command dashboard for daily orders, rally windows, shields, and faction objectives.',
-  totalPower: 'Total Power', vip18: 'VIP 18 Available', seasonStatus: 'Season 6 Status', nextEvents: 'Next Events', quickOrders: 'Quick Orders', activeDirective: 'Active Directive',
-  ordersTitle: 'Today’s Orders', ordersSubtitle: 'Execute by priority. Report blockers before reset.', noDoTitle: 'What NOT to do today', objective: 'Objective', instructions: 'Instructions', time: 'Time', responsible: 'Responsible', status: 'Status',
+  appName: '33G War Room', navHome: 'Home', navOrders: 'Orders', navStrategy: 'Strategy', navCalendar: 'Calendar', navRoster: 'Roster', navGuides: 'Guides', navLogin: 'Login', navProfile: 'Profile', navAdmin: 'Admin', languageToggle: '中文',
+  homeEyebrow: 'Season 6 Private Command Center', homeTitle: '33G War Room', homeSubtitle: 'R4 command dashboard for orders, rally windows, shields, roster readiness, and faction objectives.',
+  totalPower: 'Total Power', vip18: 'VIP 18 Available', seasonStatus: 'Season 6 Status', nextEvents: 'Next Events', quickOrders: 'Quick Orders', activeDirective: 'Active Directive', supabaseMode: 'Data Mode', mockFallback: 'Mock fallback active until Supabase env vars are configured.',
+  ordersTitle: 'Today’s Orders', ordersSubtitle: 'Everyone can read. R4/R5 admins manage live orders in Supabase.', noDoTitle: 'What NOT to do today', objective: 'Objective', instructions: 'Instructions', time: 'Time', responsible: 'Responsible', status: 'Status',
   strategyTitle: 'Season 6 Strategy', strategySubtitle: 'War room priorities for objectives, defense, and rally control.', tacticalPriorities: 'Tactical Priorities',
   calendarTitle: 'Event Calendar', calendarSubtitle: 'Weekly operation windows and preparation requirements.', preparation: 'Preparation', importance: 'Importance', type: 'Type',
-  rosterTitle: 'Alliance Roster', rosterSubtitle: 'Member readiness, roles, and VIP 18 rally assets.', player: 'Player', power: 'Power', vip: 'VIP', role: 'Role', availability: 'Availability', notes: 'Notes', vipAsset: 'VIP 18 Rally Asset',
+  rosterTitle: 'Alliance Roster', rosterSubtitle: 'Read all profiles. Edit your own profile; R4/R5 admins can edit all.', player: 'Player', power: 'Total Power', firstSquadPower: 'First Squad', vip: 'VIP', role: 'Role', squadType: 'Squad', heroes: 'Best Heroes', timezone: 'Timezone', availability: 'Availability', notes: 'Notes', vipAsset: 'VIP 18 Rally Asset',
   guidesTitle: 'Quick Guides', guidesSubtitle: 'Checklist discipline for battle days and quiet hours.',
+  loginTitle: 'Alliance Login', loginSubtitle: 'Supabase authentication entry point. Email magic link or password auth can be enabled from the Supabase dashboard.', email: 'Email', password: 'Password', signIn: 'Sign in', signOut: 'Sign out', authNotice: 'If Supabase variables are missing, this page stays in demo mode and the site still renders.',
+  profileTitle: 'My Profile', profileSubtitle: 'Members update their own war-room readiness profile.', saveProfile: 'Save profile', adminOnly: 'R4/R5 only',
+  adminTitle: 'Admin Dashboard', adminSubtitle: 'R4/R5 control panel for roster governance, orders, and event readiness.', importTitle: 'CSV Roster Import', importSubtitle: 'Prepare Google Sheets exports for Supabase import. Direct Drive sync is intentionally not connected yet.', downloadTemplate: 'CSV template columns', importFlow: 'Import flow',
   priorityHigh: 'High', priorityMedium: 'Medium', priorityLow: 'Low', statusOpen: 'Open', statusInProgress: 'In Progress', statusLocked: 'Locked', statusDone: 'Done',
-  footer: 'Mock-data command center. Edit /data files to update live plans.', accessGateTitle: 'Restricted Alliance Access', accessGateBody: 'Enable this gate when login is ready.'
+  footer: 'Mock-data command center. Supabase takes over when environment variables are configured.', accessGateTitle: 'Restricted Alliance Access', accessGateBody: 'Enable enforcement after Supabase auth policies are live.'
 } as const;

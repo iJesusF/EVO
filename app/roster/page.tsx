@@ -1,0 +1,2 @@
+import { MemberTable } from '@/components/MemberTable'; import { SectionHeader } from '@/components/SectionHeader'; import { roster } from '@/data/roster'; import { getDictionary, getLanguageFromSearchParams, type LocalizedSearchParams } from '@/lib/i18n';
+export default async function Roster({searchParams}:{searchParams?:Promise<LocalizedSearchParams>}){const lang=getLanguageFromSearchParams(await searchParams); const t=getDictionary(lang); return <><SectionHeader title={t.rosterTitle} subtitle={t.rosterSubtitle}/><MemberTable lang={lang} members={roster}/></>}
