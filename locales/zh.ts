@@ -13,5 +13,6 @@ export const zh: Record<LocaleKey, string> = {
   adminTitle: '管理指挥中心', adminSubtitle: 'R4/R5 管理首页公告、活动、指南、规则、成员资料和 CSV 导入。', adminOnly: '仅 R4/R5 管理员', manageAnnouncements: '管理公告', manageEvents: '管理活动', manageGuides: '管理指南', manageRules: '管理规则', manageRoster: '管理成员', openImport: '打开 CSV 导入',
   importTitle: '成员 CSV 导入', importSubtitle: '从 Google Sheets 导出的 CSV 导入初始成员。最终导入前先验证并预览。', expectedFields: '预期字段', importSteps: '导入步骤', chooseCsv: '选择 CSV', previewImport: '预览导入', finalImport: '最终导入',
   priorityHigh: '高', priorityMedium: '中', priorityLow: '低', emptyState: '暂无启用的指挥数据。', errorState: '指挥数据不可用，正在使用本地备用数据。', notFoundTitle: '指挥路线不存在', notFoundBody: '返回联盟主指挥面板。', returnHome: '返回首页',
+  day: '日期', title: '标题', type: '类型', responsible: '负责人', status: '状态', statusOpen: '开放', statusInProgress: '进行中', statusLocked: '锁定', statusDone: '完成', accessGateTitle: '联盟访问受限', accessGateBody: 'Supabase 认证策略上线后可启用此入口。',
   jumpStatus: '状态', jumpEvents: '活动', jumpOrders: '指令', jumpGuides: '指南', jumpRoster: '成员', jumpVip: 'VIP 18', jumpRules: '规则'
 };
