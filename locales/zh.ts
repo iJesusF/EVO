@@ -1,19 +1,17 @@
 import type { en } from './en';
-
 type LocaleKey = keyof typeof en;
-
 export const zh: Record<LocaleKey, string> = {
-  appName: '33G 作战室', navHome: '首页', navOrders: '指令', navStrategy: '战略', navCalendar: '日历', navRoster: '成员', navGuides: '指南', navLogin: '登录', navProfile: '资料', navAdmin: '管理', languageToggle: 'English',
-  homeEyebrow: '第 6 赛季私人指挥中心', homeTitle: '33G 作战室', homeSubtitle: 'R4 指挥面板，用于指令、集结窗口、护盾、成员战备与阵营目标协调。',
-  totalPower: '总战力', vip18: '可用 VIP 18', seasonStatus: '第 6 赛季状态', nextEvents: '近期活动', quickOrders: '快速指令', activeDirective: '当前指令', supabaseMode: '数据模式', mockFallback: 'Supabase 环境变量未配置前，将使用模拟数据。',
-  ordersTitle: '今日指令', ordersSubtitle: '所有人可查看。R4/R5 管理员通过 Supabase 管理实时指令。', noDoTitle: '今日禁止事项', objective: '目标', instructions: '指令', time: '时间', responsible: '负责人', status: '状态',
-  strategyTitle: '第 6 赛季战略', strategySubtitle: '围绕目标、防守与集结控制的作战室优先级。', tacticalPriorities: '战术优先级',
-  calendarTitle: '活动日历', calendarSubtitle: '每周作战窗口与准备要求。', preparation: '准备', importance: '重要性', type: '类型',
-  rosterTitle: '联盟成员', rosterSubtitle: '所有人可查看资料。成员只编辑自己；R4/R5 管理员可编辑全部。', player: '玩家', power: '总战力', firstSquadPower: '一队战力', vip: 'VIP', role: '角色', squadType: '队伍', heroes: '最佳英雄', timezone: '时区', availability: '在线时间', notes: '备注', vipAsset: 'VIP 18 集结核心',
-  guidesTitle: '快速指南', guidesSubtitle: '战斗日与低活跃时段的纪律清单。',
-  loginTitle: '联盟登录', loginSubtitle: 'Supabase 认证入口。可在 Supabase 后台启用邮箱魔法链接或密码登录。', email: '邮箱', password: '密码', signIn: '登录', signOut: '退出', authNotice: '如果缺少 Supabase 环境变量，此页面保持演示模式，网站仍会正常显示。',
-  profileTitle: '我的资料', profileSubtitle: '成员更新自己的作战室战备资料。', saveProfile: '保存资料', adminOnly: '仅 R4/R5',
-  adminTitle: '管理面板', adminSubtitle: 'R4/R5 用于成员治理、指令和活动战备的控制台。', importTitle: 'CSV 成员导入', importSubtitle: '为 Google Sheets 导出准备 Supabase 导入流程。暂不直接连接 Google Drive。', downloadTemplate: 'CSV 模板字段', importFlow: '导入流程',
-  priorityHigh: '高', priorityMedium: '中', priorityLow: '低', statusOpen: '开放', statusInProgress: '进行中', statusLocked: '锁定', statusDone: '完成',
-  footer: '模拟数据指挥中心。配置 Supabase 环境变量后切换为数据库。', accessGateTitle: '联盟访问受限', accessGateBody: 'Supabase 认证策略上线后可启用访问限制。'
+  appName: 'EVO ALLY GOD 911', topbarSubtitle: '第 6 赛季联盟指挥', navHome: '指挥', navLogin: '登录', navProfile: '资料', navAdmin: '管理', languageEnglish: 'English', languageChinese: '中文',
+  allianceStatus: '联盟状态', alliancePower: '联盟战力', vip18Players: 'VIP 18 玩家', seasonStatus: '第 6 赛季状态', currentObjective: '当前目标', lastUpdated: '最后更新', dataMode: '数据模式', mockMode: '模拟数据启用', supabaseMode: 'Supabase 已就绪',
+  nextEvents: '近期活动', eventTitle: '活动', eventTime: '日期 / 时间', importance: '重要性', preparation: '准备要求', notes: '备注',
+  announcements: '主要指令 / 公告', createdBy: '发布者', updatedAt: '更新时间', priority: '优先级', content: '内容',
+  quickGuides: '第 6 赛季快速指南', checklist: '检查清单', category: '分类',
+  rosterSnapshot: '成员快照', vipRallyFocus: 'VIP 18 / 集结手重点', rulesReminders: '规则与提醒', supportPlayers: '支援成员', rallyUse: '集结用途',
+  player: '玩家', totalPower: '总战力', firstSquadPower: '一队战力', vip: 'VIP', role: '角色', squadType: '队伍', heroes: '最佳英雄', timezone: '时区', availability: '在线时间', vipAsset: 'VIP 18 集结核心', rallyLead: '集结手', defender: '防守者',
+  loginTitle: '联盟登录', loginSubtitle: '成员通过 Supabase 认证登录。缺少环境变量时仍可使用演示模式。', email: '邮箱', password: '密码', signIn: '登录', authDemo: '认证演示：配置 Supabase 环境变量后启用真实登录。',
+  profileTitle: '我的资料', profileSubtitle: '成员只能更新自己的资料。R4/R5 可在管理页维护所有成员。', saveProfile: '保存资料',
+  adminTitle: '管理指挥中心', adminSubtitle: 'R4/R5 管理首页公告、活动、指南、规则、成员资料和 CSV 导入。', adminOnly: '仅 R4/R5 管理员', manageAnnouncements: '管理公告', manageEvents: '管理活动', manageGuides: '管理指南', manageRules: '管理规则', manageRoster: '管理成员', openImport: '打开 CSV 导入',
+  importTitle: '成员 CSV 导入', importSubtitle: '从 Google Sheets 导出的 CSV 导入初始成员。最终导入前先验证并预览。', expectedFields: '预期字段', importSteps: '导入步骤', chooseCsv: '选择 CSV', previewImport: '预览导入', finalImport: '最终导入',
+  priorityHigh: '高', priorityMedium: '中', priorityLow: '低', emptyState: '暂无启用的指挥数据。', errorState: '指挥数据不可用，正在使用本地备用数据。', notFoundTitle: '指挥路线不存在', notFoundBody: '返回联盟主指挥面板。', returnHome: '返回首页',
+  jumpStatus: '状态', jumpEvents: '活动', jumpOrders: '指令', jumpGuides: '指南', jumpRoster: '成员', jumpVip: 'VIP 18', jumpRules: '规则'
 };

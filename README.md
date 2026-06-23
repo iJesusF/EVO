@@ -1,6 +1,6 @@
-# 33G War Room
+# EVO ALLY GOD 911
 
-Private Season 6 command center for a Last War: Survival alliance with 33G total power, R4 coordination, two VIP 18 rally assets, Supabase-ready authentication, and editable roster operations.
+Single-page Season 6 command dashboard for a Last War: Survival alliance with 33G power, R4 coordination, and two VIP 18 rally assets.
 
 ## Run locally
 
@@ -9,40 +9,33 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`. Add `?lang=zh` to view Mandarin Chinese, for example `http://localhost:3000?lang=zh`.
+Open `http://localhost:3000`.
 
-## Required routes
+## Routes
 
-- `/`
-- `/login`
-- `/profile`
-- `/orders`
-- `/strategy`
-- `/calendar`
-- `/roster`
-- `/guides`
-- `/admin`
-- `/admin/import`
+User-facing command content is consolidated on `/`.
 
-## Supabase setup
+- `/` — main alliance command dashboard
+- `/login` — member login entry
+- `/profile` — member self-edit profile surface
+- `/admin` — R4/R5 admin command center
+- `/admin/import` — admin CSV roster import preparation
 
-Create these tables using `supabase/schema.sql`:
+Old routes such as `/orders`, `/strategy`, `/calendar`, `/roster`, and `/guides` are no longer used in navigation.
 
-- `profiles`
-- `orders`
-- `events`
+## Vercel deployment
 
-The schema includes row-level-security policies for the target permissions:
+Use the default Next.js build command:
 
-- Authenticated users can read all alliance profiles.
-- Members can update only their own profile.
-- R4/R5 admins, represented by `profiles.is_admin = true`, can update all profiles.
-- Everyone authenticated can read orders/events.
-- Admins can create, update, and delete orders/events.
+```bash
+npm run build
+```
 
-### Environment variables
+The repo uses `/app` only, includes `app/page.tsx`, `app/layout.tsx`, and `app/not-found.tsx`, and does not use a custom server. `vercel.json` pins the framework to Next.js and the output directory to `.next`.
 
-For Vercel and local `.env.local`:
+## Environment variables
+
+Configure these in `.env.local` and Vercel Project Settings:
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
@@ -52,46 +45,41 @@ LASTWAR_API_BASE_URL=optional
 LASTWAR_ALLIANCE_ID=optional
 ```
 
-`SUPABASE_SERVICE_ROLE_KEY` must never be exposed to client components. It is reserved for protected server-side admin import actions. If Supabase variables are missing, the site renders with mock data instead of crashing.
+`SUPABASE_SERVICE_ROLE_KEY` is only for protected server-side admin import actions and must never be exposed to client components. If Supabase variables are missing, the site renders local mock data.
 
-## CSV roster import preparation
+## Supabase
 
-The current Google Drive / Google Sheets roster should be exported as CSV. Use `csv/roster-import-template.csv` as the column template:
+Run `supabase/schema.sql` to create:
+
+- `profiles`
+- `announcements`
+- `events`
+- `guides`
+- `rules`
+
+RLS policies allow members to read active command content and profiles, update only their own profile, and allow admins (`profiles.is_admin = true`) to manage all profiles and command content.
+
+## CSV roster import from Google Sheets
+
+Export Google Sheets as CSV and match `csv/roster-import-template.csv`:
 
 ```csv
-player_name,total_power,first_squad_power,vip_level,main_squad_type,best_heroes,timezone,availability,alliance_role,is_admin,notes
+player_name,total_power,first_squad_power,vip_level,main_squad_type,best_heroes,timezone,availability,alliance_role,notes
 ```
 
-Direct Google Drive sync is intentionally not connected yet. The `/admin/import` page documents the prepared flow for a future protected server action that validates and imports CSV rows into Supabase.
+`/admin/import` documents the admin-only flow: choose CSV, validate rows, preview, then final import through a future protected server action.
 
-## Editing mock data
+## Mock data
 
-Until Supabase is configured, operational content is loaded from editable files:
+Edit local fallback command content in:
 
-- `data/alliance.ts` — alliance power, VIP 18 count, season status, active directive.
-- `data/orders.ts` — today’s orders and “do not do” list.
-- `data/events.ts` — weekly calendar events.
-- `data/roster.ts` — Supabase-shaped profile mock data.
-- `data/guides.ts` — quick checklist guides.
-- `data/strategy.ts` — Season 6 war-room strategy sections.
+- `data/command.ts` — alliance status, events, announcements, quick guides, rules, VIP focus
+- `data/roster.ts` — profile-shaped roster data
 
-Localized fields use this shape:
+## Language system
 
-```ts
-{ en: 'Do not burn speedups outside buff windows.', zh: '不要在增益窗口之外消耗加速道具。' }
-```
+The app uses `I18nProvider` in `app/layout.tsx` and `useTranslation()` for global UI translation. Language selection persists across `/`, `/login`, `/profile`, and `/admin` using localStorage and a `lang` cookie. Detection order is cookie, localStorage, browser language, then English.
 
-## Vercel deployment
+## Admin management
 
-1. Push the repository to GitHub.
-2. Import the project in Vercel.
-3. Set the Supabase environment variables above in Vercel Project Settings.
-4. Deploy with the default Next.js build command:
-
-```bash
-npm run build
-```
-
-No custom server is required. The root route `/` is a real homepage, and `app/not-found.tsx` handles missing routes. The project pins Next.js to `16.2.6` to avoid the known vulnerable 15.x/early-16.x ranges.
-
-This repo includes `vercel.json` with `framework: "nextjs"` and `outputDirectory: ".next"`. If Vercel reports `No Output Directory named "public" found`, remove any Project Settings override that points the Output Directory to `public`, or let this repository-level `vercel.json` control the build output.
+R4/R5 admins manage homepage announcements, next events, guide cards, rules/reminders, roster data, and CSV import from `/admin` and `/admin/import`. Admin-editable database fields are bilingual (`*_en`, `*_zh`) so the homepage can remain fully localized.
