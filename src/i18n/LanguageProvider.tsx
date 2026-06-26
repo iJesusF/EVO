@@ -2,10 +2,10 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { en } from './en';
 import { zh } from './zh';
-export type Language = 'en' | 'zh';
-type Dictionary = typeof en;
+import type { Dictionary, Language } from './types';
+export type { Language } from './types';
 type I18nContext = { language: Language; setLanguage: (language: Language) => void; t: Dictionary };
-const dictionaries: Record<Language, Dictionary> = { en, zh: zh as Dictionary };
+const dictionaries: Record<Language, Dictionary> = { en, zh };
 const Context = createContext<I18nContext | null>(null);
 function getInitialLanguage(): Language {
   if (typeof window === 'undefined') return 'en';
