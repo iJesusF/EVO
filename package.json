@@ -1,6 +1,6 @@
 {
-  "name": "33g-war-room",
-  "version": "0.2.0",
+  "name": "evo-season-6-dashboard",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

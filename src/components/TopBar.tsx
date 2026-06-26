@@ -1,0 +1,6 @@
+'use client';
+import { events } from '@/src/data/events';
+import { useI18n } from '@/src/i18n/LanguageProvider';
+import { CountdownTimer } from './CountdownTimer';
+import { LanguageSwitcher } from './LanguageSwitcher';
+export function TopBar(){ const { t, language } = useI18n(); const next = events[0]; return <header className="rounded-3xl border border-white/10 bg-slate-900/70 p-4 shadow-2xl shadow-black/20 backdrop-blur"><div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between"><div><p className="text-xs font-black uppercase tracking-[0.3em] text-teal-300">{t.nextMajorEvent}</p><h1 className="mt-1 text-2xl font-black text-white md:text-4xl">{t.seasonTitle}</h1></div><div className="grid gap-3 md:grid-cols-[1fr_auto_auto] md:items-center"><div className="rounded-2xl border border-teal-400/20 bg-slate-950/50 p-3"><p className="text-sm font-bold text-white">{next.title[language]}</p><CountdownTimer targetDate={next.startsAt}/></div><div className="rounded-2xl border border-white/10 bg-slate-950/50 p-3 text-sm"><p className="text-slate-400">{t.currentPhase}</p><p className="font-black text-teal-100">Shadow Rainforest</p></div><LanguageSwitcher/></div></div></header>; }

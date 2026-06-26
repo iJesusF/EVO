@@ -1,0 +1,9 @@
+export const en = {
+  appName: 'EVO Season 6 Dashboard', seasonTitle: 'Season 6 — Shadow Rainforest', alliance: 'Alliance', evo: 'EVO', currentPhase: 'Current Phase', nextMajorEvent: 'Next Major Event', language: 'Language', completed: 'Completed', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
+  overview: 'Season 6 Overview', objectives: 'Key Objectives', schedule: 'Event Schedule', guides: 'Guides', map: 'Shadow Rainforest Map', factionZones: 'Faction & Zones', altarGuide: 'Altar Guide', recommendedBuilds: 'Recommended Builds', commonMistakes: 'Common Mistakes', marchPlanner: 'March Planner', resourceCalculator: 'Resource Calculator', glossary: 'Glossary',
+  topEvent: 'Top Event Countdown', currentObjective: 'Next Objective', timeline: 'Objective Timeline', quickReminders: 'Quick Reminders', mapLegend: 'Map Legend', howToReadMap: 'How to Read the Map', mapFooter: 'United as EVO. Stronger Together.', mapPlaceholder: 'Shadow Rainforest tactical map placeholder',
+  evoTerritory: 'EVO Territory', ally: 'Ally', neutral: 'Neutral', enemy: 'Enemy', outpost: 'Outpost', altar: 'Altar', sanctuary: 'Sanctuary', tradePost: 'Trade Post',
+  priority: 'Priority', description: 'Description', startTime: 'Start Date / Time', countdown: 'Countdown', status: 'Status', preparation: 'Preparation', notes: 'Notes', high: 'High', medium: 'Medium', low: 'Low', active: 'Active', upcoming: 'Upcoming', locked: 'Locked',
+  reminders: ['Check in before each objective.', 'Use all daily stamina.', 'Coordinate rallies with allies.', 'Communicate in alliance chat.', 'Stay active and have fun.'],
+  pageObjectives: 'Track the major Season 6 targets and prepare before each window.', pageSchedule: 'Review the Shadow Rainforest event timeline and countdowns.', pageGuides: 'Fast reference cards for commanders and active members.', pageMap: 'Large tactical map view with zone legend and visual controls.'
+} as const;

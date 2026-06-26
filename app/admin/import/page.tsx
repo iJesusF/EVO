@@ -1,4 +1,0 @@
-'use client';
-import { useTranslation } from '@/components/I18nProvider';
-const fields=['player_name','total_power','first_squad_power','vip_level','main_squad_type','best_heroes','timezone','availability','alliance_role','notes'];
-export default function ImportPage(){const {t}=useTranslation(); return <section className="rounded-2xl border border-white/10 bg-command-900/70 p-5"><h1 className="text-3xl font-black text-white">{t.importTitle}</h1><p className="mt-2 text-sm text-slate-300">{t.importSubtitle}</p><h2 className="mt-5 font-black text-white">{t.expectedFields}</h2><code className="mt-2 block overflow-x-auto rounded-xl bg-black/40 p-3 text-sm text-neon">{fields.join(',')}</code><ol className="mt-5 list-decimal space-y-2 pl-5 text-slate-300"><li>{t.chooseCsv}</li><li>{t.previewImport}</li><li>{t.finalImport}</li></ol></section>}

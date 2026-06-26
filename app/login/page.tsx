@@ -1,4 +1,0 @@
-'use client';
-import { useTranslation } from '@/components/I18nProvider';
-import { isSupabaseConfigured } from '@/lib/supabase';
-export default function Login(){const {t}=useTranslation(); return <section className="mx-auto max-w-xl rounded-2xl border border-white/10 bg-command-900/70 p-5"><h1 className="text-3xl font-black text-white">{t.loginTitle}</h1><p className="mt-2 text-sm text-slate-300">{t.loginSubtitle}</p><label className="mt-5 block text-sm font-bold">{t.email}<input className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2" type="email"/></label><label className="mt-4 block text-sm font-bold">{t.password}<input className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-3 py-2" type="password"/></label><button className="mt-5 rounded-xl bg-neon px-4 py-2 font-black text-black" type="button">{t.signIn}</button><p className="mt-4 text-sm text-slate-300">{isSupabaseConfigured?t.supabaseMode:t.authDemo}</p></section>}

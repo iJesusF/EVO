@@ -1,0 +1,6 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { useI18n } from '@/src/i18n/LanguageProvider';
+function parts(target: string) { const diff = Math.max(0, new Date(target).getTime() - Date.now()); return { days: Math.floor(diff/86400000), hours: Math.floor(diff/3600000)%24, minutes: Math.floor(diff/60000)%60, seconds: Math.floor(diff/1000)%60, done: diff <= 0 }; }
+export function CountdownTimer({ targetDate }: { targetDate: string }) { const { t } = useI18n(); const [time, setTime] = useState(() => parts(targetDate)); useEffect(() => { const id = setInterval(() => setTime(parts(targetDate)), 1000); return () => clearInterval(id); }, [targetDate]); if (time.done) return <span className="font-black text-teal-200">{t.completed}</span>; return <div className="grid grid-cols-4 gap-2 text-center text-xs"><Unit label={t.days} value={time.days}/><Unit label={t.hours} value={time.hours}/><Unit label={t.minutes} value={time.minutes}/><Unit label={t.seconds} value={time.seconds}/></div>; }
+function Unit({label,value}:{label:string;value:number}) { return <div className="rounded-xl border border-teal-400/20 bg-slate-950/50 p-2"><div className="text-lg font-black text-teal-200">{String(value).padStart(2,'0')}</div><div className="text-[10px] uppercase text-slate-400">{label}</div></div>; }
