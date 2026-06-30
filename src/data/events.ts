@@ -1,0 +1,9 @@
+export type EventItem = { id:string; titleKey:string; title:{en:string; zh:string}; startsAt:string; importance:'high'|'medium'|'low'; preparation:{en:string; zh:string}; notes:{en:string; zh:string} };
+export const events: EventItem[] = [
+  { id:'season-start', titleKey:'Season Start', title:{en:'Season Start', zh:'赛季开始'}, startsAt:'2026-07-01T12:00:00Z', importance:'high', preparation:{en:'Review zones and assign scouting lanes.', zh:'查看区域并分配侦察路线。'}, notes:{en:'All members check shield timers.', zh:'所有成员检查护盾时间。'} },
+  { id:'control-center', titleKey:'Control Center Capture', title:{en:'Control Center Capture', zh:'控制中心占领'}, startsAt:'2026-07-03T18:00:00Z', importance:'high', preparation:{en:'Rally leads online 30 minutes early.', zh:'集结手提前 30 分钟在线。'}, notes:{en:'Do not split rallies.', zh:'不要分散集结。'} },
+  { id:'air-base', titleKey:'Air Base Secured', title:{en:'Air Base Secured', zh:'空军基地稳固'}, startsAt:'2026-07-05T18:00:00Z', importance:'medium', preparation:{en:'Prepare fast reinforcements.', zh:'准备快速增援。'}, notes:{en:'Hold support marches.', zh:'保留支援行军。'} },
+  { id:'train-station', titleKey:'Train Station Control', title:{en:'Train Station Control', zh:'火车站控制'}, startsAt:'2026-07-08T20:00:00Z', importance:'high', preparation:{en:'Coordinate with allies before launch.', zh:'发起前与盟友协调。'}, notes:{en:'Watch enemy flanks.', zh:'注意敌方侧翼。'} },
+  { id:'sanctuary-clash', titleKey:'Sanctuary Clash', title:{en:'Sanctuary Clash', zh:'圣所冲突'}, startsAt:'2026-07-12T19:00:00Z', importance:'high', preparation:{en:'No solo hits; wait for calls.', zh:'不要单打，等待指令。'}, notes:{en:'Defenders keep presets ready.', zh:'防守者保持预设就绪。'} },
+  { id:'final-showdown', titleKey:'Final Showdown', title:{en:'Final Showdown', zh:'最终决战'}, startsAt:'2026-07-18T21:00:00Z', importance:'high', preparation:{en:'Save buffs, heals, and speedups.', zh:'保留增益、治疗与加速。'}, notes:{en:'Full alliance attendance requested.', zh:'要求全联盟尽量参加。'} }
+];
