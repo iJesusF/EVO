@@ -1,0 +1,10 @@
+export const expectedSheets = ["MASTER BY ROOM", "PROGRAMMING LIST", "AREA A", "AREA B", "AREA C", "AREA D", "AREA E", "AREA F", "DEVICE TYPE", "SUMMARY", "QC OBSERVATIONS"] as const;
+export const editableFields = ["Status", "Confidence", "Verified", "Programming Notes", "Commissioning Notes", "Observations"] as const;
+export const deviceColumns = ["Level", "Area", "Drawing", "Room No.", "Room Name", "Device ID", "Device Type", "Model", "Mount", "Loop", "FP", "NAC", "Programming Order", "Programming Notes", "Status", "Confidence", "Verified", "Commissioning Notes", "Observations"] as const;
+export type DeviceColumn = (typeof deviceColumns)[number];
+export type EditableField = (typeof editableFields)[number];
+export type DeviceStatus = "Not Started" | "Programmed" | "Installed" | "Tested" | "Accepted" | "Issue" | string;
+export type Confidence = "High" | "Medium" | "Review" | string;
+export type FireAlarmDevice = Record<DeviceColumn, string> & { __rowId: string; __rowIndex?: number; [key: string]: string | number | undefined };
+export type WorkbookState = { fileName: string; sheetNames: string[]; devices: FireAlarmDevice[]; workbook?: import("xlsx").WorkBook; masterSheetName: string; loadedAt: string };
+export type DeviceFilters = Partial<Record<"Area" | "Device Type" | "Status" | "Confidence" | "Loop" | "NAC", string>>;

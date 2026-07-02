@@ -1,0 +1,3 @@
+"use client";
+import { Upload } from "lucide-react"; import { readWorkbookFile } from "@/lib/excel"; import type { WorkbookState } from "@/lib/types";
+export function FileUploader({ onLoad }: { onLoad: (state: WorkbookState) => void }) { return <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed bg-card p-4 text-sm hover:bg-accent"><Upload className="h-5 w-5"/><span><b>Upload Excel workbook</b><br/><span className="text-muted-foreground">.xlsx client-side import; no server upload.</span></span><input className="hidden" type="file" accept=".xlsx,.xls" onChange={async(e)=>{const f=e.target.files?.[0]; if(f) onLoad(await readWorkbookFile(f));}}/></label> }
