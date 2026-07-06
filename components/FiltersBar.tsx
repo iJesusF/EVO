@@ -1,0 +1,4 @@
+"use client";
+import { Input } from "./ui/input"; import { Select } from "./ui/select"; import { uniqueSorted } from "@/lib/utils"; import type { DeviceFilters, FireAlarmDevice } from "@/lib/types";
+const keys = ["Area","Device Type","Status","Confidence","Loop","NAC"] as const;
+export function FiltersBar({devices,search,setSearch,filters,setFilters}:{devices:FireAlarmDevice[];search:string;setSearch:(v:string)=>void;filters:DeviceFilters;setFilters:(f:DeviceFilters)=>void}){return <div className="grid gap-3 md:grid-cols-4 xl:grid-cols-7"><Input placeholder="Search Device ID, Room No., Room Name" value={search} onChange={(e)=>setSearch(e.target.value)}/>{keys.map(k=><Select key={k} value={filters[k]||""} onChange={(e)=>setFilters({...filters,[k]:e.target.value||undefined})}><option value="">All {k}</option>{uniqueSorted(devices.map(d=>d[k])).map(v=><option key={v} value={v}>{v}</option>)}</Select>)}</div>}
